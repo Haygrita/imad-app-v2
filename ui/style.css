@@ -36,8 +36,11 @@ margin-right: 30px;
 
 }
 #intro-box{
-  border: 1px solid grey;
-  padding-left:50px;
-  padding-right:5px;
+ border: 1px solid grey;
+    padding-top: 30px;
+    padding-left: 50px;
+    padding-right: 5px;
+    margin-left: 150px;
+    margin-right: 150px;
 
 }
