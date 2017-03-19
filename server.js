@@ -10,7 +10,8 @@ var config={
     database:'haygrita',
     host:'db.imad.hasura-app.io',
     port:'5432',
-    password:process.env.DB_PASSWORD
+    password:'db-haygrita-1509'
+
 }
 
 
