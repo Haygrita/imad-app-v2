@@ -99,17 +99,11 @@ function changeContent(page){
         `
   return template;
 }
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-
-
-app.get('/:articleName',function(req,res){
-   articleName=req.params.articleName;
-   console.log(articleName+"is this");
-   console.log("hariii"+articles[articleName]);
-   res.send(changeContent(articles[articleName]));
-})
 
 var pool = new Pool(config);
 app.get('/test',function(req,res){
@@ -123,6 +117,14 @@ app.get('/test',function(req,res){
         }
     })
 })
+app.get('/:articleName',function(req,res){
+   articleName=req.params.articleName;
+   console.log(articleName+"is this");
+   console.log("hariii"+articles[articleName]);
+   res.send(changeContent(articles[articleName]));
+})
+
+
 
 
 app.get('/ui/style.css', function (req, res) {
