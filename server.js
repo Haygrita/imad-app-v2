@@ -116,7 +116,7 @@ app.get('/test',function(req,res){
     pool.query('SELECT * FROM articles',function(err,result){
         if(err)
         {
-            return "error";
+            res.send("errorrr");
         }
         else{
             res.send(JSON.stringify(result));
