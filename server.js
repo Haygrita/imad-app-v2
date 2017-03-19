@@ -121,6 +121,14 @@ app.get('/test',function(req,res){
 app.get('/articles/:articleName',function(req,res){
    articleName=req.params.articleName;
    console.log(articleName+"is this");
+   pool.query('SELECT * FROM articles where heading='+articleName,function(err,result){
+       if(err){
+           res.send(err.toString());
+       }
+       else{
+           res.send(result.rows[0]);
+       }
+   })
    console.log("hariii"+articles[articleName]);
    res.send(changeContent(articles[articleName]));
 })
