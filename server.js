@@ -1,10 +1,30 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-
+var Pool = require('pg').Pool;
+var pool = new Pool();
 var app = express();
 app.use(morgan('combined'));
+var config={
+    user:'haygrita',
+    database:'haygrita',
+    host:'db.imad.hasura-app.io',
+    port:'5432',
+    password:process.env.DB_PASSWORD
+}
 
+var pool = new pg.Pool(config);
+app.get('/test',function(req,res){
+    pool.query('SELECT * FROM articles',function(err,result){
+        if(err)
+        {
+            return "error";
+        }
+        else{
+            res.send(JSON.stringify(result));
+        }
+    })
+})
 var articles={
  "article-one": {
    'heading':'Article One',
