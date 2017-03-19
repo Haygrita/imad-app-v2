@@ -110,7 +110,7 @@ app.get('/test',function(req,res){
     pool.query('SELECT * FROM articles',function(err,result){
         if(err)
         {
-            res.send("errorrr");
+            res.send(err.toString());
         }
         else{
             res.send(JSON.stringify(result));
