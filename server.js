@@ -13,18 +13,7 @@ var config={
     password:process.env.DB_PASSWORD
 }
 
-var pool = new Pool(config);
-app.get('/test',function(req,res){
-    pool.query('SELECT * FROM articles',function(err,result){
-        if(err)
-        {
-            return "error";
-        }
-        else{
-            res.send(JSON.stringify(result));
-        }
-    })
-})
+
 var articles={
  "article-one": {
    'heading':'Article One',
@@ -114,6 +103,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+
 app.get('/:articleName',function(req,res){
    articleName=req.params.articleName;
    console.log(articleName+"is this");
@@ -121,7 +111,18 @@ app.get('/:articleName',function(req,res){
    res.send(changeContent(articles[articleName]));
 })
 
-
+var pool = new Pool(config);
+app.get('/test',function(req,res){
+    pool.query('SELECT * FROM articles',function(err,result){
+        if(err)
+        {
+            return "error";
+        }
+        else{
+            res.send(JSON.stringify(result));
+        }
+    })
+})
 
 
 app.get('/ui/style.css', function (req, res) {
