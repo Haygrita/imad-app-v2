@@ -126,11 +126,11 @@ app.get('/articles/:articleName',function(req,res){
            res.send(err.toString());
        }
        else{
-           res.send(result.rows[0]);
+           article=result.rows[0];
+           console.log(article);
        }
    })
-   console.log("hariii"+articles[articleName]);
-   res.send(changeContent(articles[articleName]));
+   
 })
 
 
