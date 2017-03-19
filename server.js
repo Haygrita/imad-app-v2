@@ -129,6 +129,7 @@ app.get('/articles/:articleName',function(req,res){
        else{
            article=result.rows[0];
            console.log(article);
+           res.send(changeContent(article));
        }
    })
    
