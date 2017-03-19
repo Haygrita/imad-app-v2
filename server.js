@@ -8,7 +8,7 @@ app.use(morgan('combined'));
 var config={
     user:'haygrita',
     database:'haygrita',
-    host:'db.imad.hasura-app.io',
+    host:'localhost',
     port:'5432',
     password:process.env.DB_PASSWORD
 }
