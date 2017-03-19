@@ -114,7 +114,7 @@ app.get('/test',function(req,res){
             res.send(err.toString());
         }
         else{
-            res.send(JSON.stringify(result));
+            res.send(JSON.stringify(result.rows));
         }
     })
 })
