@@ -117,7 +117,7 @@ app.get('/test',function(req,res){
         }
     })
 })
-app.get('/:articleName',function(req,res){
+app.get('/articles/:articleName',function(req,res){
    articleName=req.params.articleName;
    console.log(articleName+"is this");
    console.log("hariii"+articles[articleName]);
